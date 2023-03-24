@@ -17,8 +17,8 @@ export class AppController {
   ) {}
 
   @UseGuards(LocalAuthGuard) //these comments are for session Authentication, they've been turned off in order to JWT access token
-  @Post('/login')
-  @ApiOperation({ summary: 'login check' })
+  @Post('/authenticate')
+  @ApiOperation({ summary: 'Authenticate and provide token Provider' })
   login(@Request() req): any {
     return this.authService.login(req); //TODO: return JWT access token
   }

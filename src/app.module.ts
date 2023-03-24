@@ -15,7 +15,7 @@ const isTestingMode = process.env.STAGE == 'test';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: isTestingMode ? [`${process.env.STAGE}.env`] : [`.env`],
+      envFilePath: isTestingMode ? [`.env.${process.env.STAGE}`] : [`.env`],
       validationSchema: configSchemaValidation,
     }),
     TypeOrmModule.forRootAsync({
